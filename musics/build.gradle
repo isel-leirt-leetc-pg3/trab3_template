@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    // https://mvnrepository.com/artifact/javazoom/jlayer
+    implementation 'javazoom:jlayer:1.0.1'
+    // https://mvnrepository.com/artifact/com.mpatric/mp3agic
+    implementation 'com.mpatric:mp3agic:0.9.1'
+}
+
+test {
+    useJUnitPlatform()
+}

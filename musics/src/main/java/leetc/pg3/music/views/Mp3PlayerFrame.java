@@ -1,26 +1,22 @@
-package leirt.pg3.music.views;
+package leetc.pg3.music.views;
 
 
-import leirt.pg3.music.model.*;
-import leirt.pg3.music.utils.Mp3Player;
-import leirt.pg3.music.utils.Utils;
+import leetc.pg3.music.model.*;
+import leetc.pg3.music.utils.Mp3Player;
+import leetc.pg3.music.utils.Utils;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
-import static leirt.pg3.music.model.MusicItemFinder.*;
-import static leirt.pg3.music.utils.Utils.*;
-import static leirt.pg3.music.views.ItemsViewer.*;
+import static leetc.pg3.music.model.MusicItemFinder.*;
+import static leetc.pg3.music.utils.Utils.*;
+import static leetc.pg3.music.views.ItemsViewer.*;
 
 public class Mp3PlayerFrame extends JFrame {
     private static final String DEFAULT_FOLDER_MUSICS = ".";

@@ -1,4 +1,4 @@
-package leirt.pg3.exceptions;
+package leetc.pg3.exceptions;
 
 public class FindMusicException extends RuntimeException{
     public FindMusicException(Exception e) {

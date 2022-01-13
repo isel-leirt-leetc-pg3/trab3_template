@@ -1,6 +1,6 @@
-package leirt.pg3.music.model;
+package leetc.pg3.music.model;
 
-import leirt.pg3.music.utils.Mp3Player;
+import leetc.pg3.music.utils.Mp3Player;
 
 import java.util.*;
 /**

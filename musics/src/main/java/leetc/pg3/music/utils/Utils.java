@@ -1,4 +1,4 @@
-package leirt.pg3.music.utils;
+package leetc.pg3.music.utils;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

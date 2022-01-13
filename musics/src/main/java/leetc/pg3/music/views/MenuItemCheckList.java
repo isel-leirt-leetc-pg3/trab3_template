@@ -1,4 +1,4 @@
-package leirt.pg3.music.views;
+package leetc.pg3.music.views;
 
 import javax.swing.*;
 import java.awt.event.ItemEvent;

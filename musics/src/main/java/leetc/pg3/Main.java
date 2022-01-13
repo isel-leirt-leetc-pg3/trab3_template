@@ -1,6 +1,6 @@
-package leirt.pg3;
+package leetc.pg3;
 
-import leirt.pg3.music.views.Mp3PlayerFrame;
+import leetc.pg3.music.views.Mp3PlayerFrame;
 
 import javax.swing.*;
 

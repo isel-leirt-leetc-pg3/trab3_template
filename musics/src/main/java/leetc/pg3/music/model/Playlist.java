@@ -1,4 +1,4 @@
-package leirt.pg3.music.model;
+package leetc.pg3.music.model;
 
 /**
  * TODO ...

@@ -1,9 +1,9 @@
-package leetc.pg3.music.views;
+package isel.pg3.music.views;
 
 
-import leetc.pg3.music.model.*;
-import leetc.pg3.music.utils.Mp3Player;
-import leetc.pg3.music.utils.Utils;
+import isel.pg3.music.model.*;
+import isel.pg3.music.utils.Mp3Player;
+import isel.pg3.music.utils.Utils;
 
 import javax.swing.*;
 
@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import static leetc.pg3.music.model.MusicItemFinder.*;
-import static leetc.pg3.music.utils.Utils.*;
-import static leetc.pg3.music.views.ItemsViewer.*;
+import static isel.pg3.music.model.MusicItemFinder.*;
+import static isel.pg3.music.utils.Utils.*;
+import static isel.pg3.music.views.ItemsViewer.*;
 
 public class Mp3PlayerFrame extends JFrame {
     private static final String DEFAULT_FOLDER_MUSICS = ".";

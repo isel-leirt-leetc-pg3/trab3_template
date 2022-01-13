@@ -1,9 +1,9 @@
-package leetc.pg3.music.model;
+package isel.pg3.music.model;
 
 import com.mpatric.mp3agic.ID3v1;
 import com.mpatric.mp3agic.Mp3File;
-import leetc.pg3.exceptions.FindMusicException;
-import leetc.pg3.exceptions.MusicDbException;
+import isel.pg3.exceptions.FindMusicException;
+import isel.pg3.exceptions.MusicDbException;
 
 import java.io.File;
 import java.util.*;

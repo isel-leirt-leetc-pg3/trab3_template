@@ -1,4 +1,4 @@
-package leetc.pg3.exceptions;
+package isel.pg3.exceptions;
 
 public class MusicDbException extends RuntimeException{
     public MusicDbException(String msg) {

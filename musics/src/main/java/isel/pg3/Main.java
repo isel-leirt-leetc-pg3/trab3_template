@@ -1,6 +1,6 @@
-package leetc.pg3;
+package isel.pg3;
 
-import leetc.pg3.music.views.Mp3PlayerFrame;
+import isel.pg3.music.views.Mp3PlayerFrame;
 
 import javax.swing.*;
 

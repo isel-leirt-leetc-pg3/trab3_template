@@ -1,4 +1,4 @@
-package leetc.pg3.music.model;
+package isel.pg3.music.model;
 
 import java.util.*;
 

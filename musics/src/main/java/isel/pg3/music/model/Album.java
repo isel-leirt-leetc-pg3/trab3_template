@@ -1,6 +1,6 @@
-package leetc.pg3.music.model;
+package isel.pg3.music.model;
 
-import leetc.pg3.music.utils.Mp3Player;
+import isel.pg3.music.utils.Mp3Player;
 
 import java.util.*;
 

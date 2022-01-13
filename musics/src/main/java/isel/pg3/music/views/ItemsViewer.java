@@ -1,4 +1,4 @@
-package leetc.pg3.music.views;
+package isel.pg3.music.views;
 
 
 import javax.swing.*;

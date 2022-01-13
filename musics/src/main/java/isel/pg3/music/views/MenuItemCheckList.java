@@ -35,6 +35,6 @@ public class MenuItemCheckList extends JMenu {
      }
 
      public String[] getSelected() {
-         return selected.toArray(sz -> {System.out.println(sz); return new String[sz];});
+         return selected.toArray(sz -> new String[sz]);
      }
 }

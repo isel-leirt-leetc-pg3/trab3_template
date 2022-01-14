@@ -89,6 +89,9 @@ public class Mp3Player {
 
             player.play();//starting music
         }
+        catch(Exception e) {
+            fireErrorEvent(e);
+        }
         finally {
             Player temp = player;
             player = null;
@@ -116,10 +119,14 @@ public class Mp3Player {
                 while(filePath != null) {
                     mp3Stream =
                         new BufferedInputStream(new FileInputStream(filePath));
+                    String title = null;
                     Mp3File mp3File = new Mp3File(filePath);
-                    ID3v1 info = mp3File.getId3v1Tag();
-                    String title = info.getTitle();
-                    if (title.isEmpty()) title = getFilename( filePath );
+                    if (mp3File.hasId3v1Tag()) {
+                        ID3v1 info = mp3File.getId3v1Tag();
+                        title = info.getTitle();
+                    }
+                    if (title == null || title.isEmpty())
+                        title = getFilename( filePath );
                     if (totalLength == 0) {
                         totalLength = mp3Stream.available();
                         fireStartMusicEvent(title);
@@ -160,7 +167,7 @@ public class Mp3Player {
                 player.close();
                 player = null;
             } catch (IOException e1) {
-
+                fireErrorEvent(e1);
             }
         }
     }

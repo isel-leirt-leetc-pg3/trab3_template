@@ -19,7 +19,7 @@ import static isel.pg3.music.utils.Utils.*;
 import static isel.pg3.music.views.ItemsViewer.*;
 
 public class Mp3PlayerFrame extends JFrame {
-    private static final String DEFAULT_FOLDER_MUSICS = ".";
+    private static final String DEFAULT_FOLDER_MUSICS = "C:/Users/jmartins/Music";
 
     // states for the music player
     private enum State { Playing, Paused, Stopped }

@@ -85,8 +85,8 @@ public class MusicItemFinder {
          try {
             Mp3File mp3file = new Mp3File(filename.getAbsolutePath());
             String title = "";
-            String artist = "";
-            String genre = "unknown";
+            String artist = "Unkown";
+            String genre = "Unknown";
             String album= dirName;
             int duration = (int) mp3file.getLengthInSeconds();
             if ( mp3file.hasId3v1Tag() ) {

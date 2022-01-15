@@ -19,6 +19,7 @@ public class Mp3Player {
     private volatile Player player;
     private volatile String filePath;
     private Iterator<String> iterator;
+    private Thread playThread;
 
     // events
     public interface CompletedListListener {
@@ -80,6 +81,9 @@ public class Mp3Player {
         return filePath.substring(indexFirst+1, indexLast);
     }
 
+    private class PlayAbortedException  extends RuntimeException {
+
+    }
     private void execPlay()
         throws IOException, JavaLayerException {
 
@@ -88,15 +92,18 @@ public class Mp3Player {
             player = new Player(mp3Stream);
 
             player.play();//starting music
+
         }
         catch(Exception e) {
             fireErrorEvent(e);
         }
         finally {
-            Player temp = player;
-            player = null;
-            temp.close();
             mp3Stream.close();
+            if (player != null) {
+                player.close();
+                player = null;
+            }
+            else throw new PlayAbortedException();
         }
     }
 
@@ -114,9 +121,9 @@ public class Mp3Player {
     }
 
     public void resume() {
-        Thread playThread = new Thread(() -> {
+        playThread = new Thread(() -> {
             try {
-                while(filePath != null) {
+                do {
                     mp3Stream =
                         new BufferedInputStream(new FileInputStream(filePath));
                     String title = null;
@@ -138,11 +145,16 @@ public class Mp3Player {
                     totalLength = 0;
                     filePath  = iterator.hasNext() ? iterator.next() : null;
                 }
+                while(filePath != null);
                 fireCompletedEvent();
+            }
+            catch(PlayAbortedException e) {
+
             }
             catch(Exception e) {
                 fireErrorEvent(e);
             }
+
         });
         playThread.start();
     }
@@ -150,12 +162,19 @@ public class Mp3Player {
 
     public void stop() {
         //code for stop button
-        if (player != null) {
-            player.close();
-            pauseLength = 0;
-            iterator = null;
-            filePath = null;
-            player = null;
+        try {
+            if (player != null) {
+                Player temp = player;
+                player = null;
+                temp.close();
+                playThread.join();
+                pauseLength = 0;
+                iterator = null;
+                filePath = null;
+                fireCompletedEvent();
+            }
+        }catch(InterruptedException e) {
+
         }
     }
 
@@ -164,8 +183,10 @@ public class Mp3Player {
         if (player != null) {
             try {
                 pauseLength = mp3Stream.available();
-                player.close();
+                Player temp = player;
                 player = null;
+                temp.close();
+
             } catch (IOException e1) {
                 fireErrorEvent(e1);
             }
